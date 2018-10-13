@@ -8,4 +8,10 @@ router.post('/',(req, res) => {
     })
 })
 
+router.get('/',(req, res) => {
+    Category.findAll().then(categories=> {
+        res.status(200).json({categories})
+    })
+})
+
 module.exports = router;
