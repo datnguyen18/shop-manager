@@ -14,4 +14,12 @@ router.get('/',(req, res) => {
     })
 })
 
+router.get('/:id',(req,res) => {
+    Category.find({where: {id: req.params.id}}).then(category => {
+        if(!category){
+            return res.status(404).json({error: "Not found"})
+        }
+        res.status(200).json({category})
+    })
+})
 module.exports = router;
