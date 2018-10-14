@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Category = require('../models').Category;
-
+const Product = require('../models').Product;
 router.post('/',(req, res) => {
     Category.create(req.body).then(category => {
         res.status(200).json({category})
@@ -9,7 +9,9 @@ router.post('/',(req, res) => {
 })
 
 router.get('/',(req, res) => {
-    Category.findAll().then(categories=> {
+    Category.findAll({
+        include: [Product]
+    }).then(categories=> {
         res.status(200).json({categories})
     })
 })

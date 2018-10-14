@@ -4,7 +4,8 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const customerRoute = require('./routes/customer');
 const categoryRoute = require('./routes/category');
-const Customer = require('./models').Customer;
+const productRoute = require('./routes/product');
+
 app.use(morgan('dev'));
 
 app.use(bodyParser.urlencoded({
@@ -14,4 +15,6 @@ app.use(bodyParser.json());
 
 app.use('/customer',customerRoute);
 app.use('/category', categoryRoute);
+app.use('/product', productRoute);
+
 module.exports = app;
