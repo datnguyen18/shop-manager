@@ -1,0 +1,27 @@
+const express = require('express');
+const router = express.Router();
+const Product = require('../models').Product;
+
+router.post('/', (req, res)=> {
+    Product.create(req.body).then(product => {
+        res.status(200).json({product})
+    })
+})
+
+router.get('/',(req,res) => {
+    Product.findAll().then(products => {
+        res.status(200).json({
+            products
+        })
+    })
+})
+router.get('/:id',(req,res) => {
+    Product.find({where: {id: req.params.id}}).then(product => {
+        res.status(200).json({
+            product
+        })
+    })
+})
+
+
+module.exports = router;
