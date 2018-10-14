@@ -25,13 +25,19 @@ router.get('/:id',(req,res) => {
 
 router.delete('/:id',(req,res) => {
     Category.find({where: {id: req.params.id}}).then(category =>{
-        if(!category) {
-            return res.status(404).json({error: "Not found"})
-        }
         category.destroy();
     }).then(() => {
         res.status(200).json({
-            message: "delete successful"
+            message: "deleted successfully"
+        })
+    })
+})
+router.patch('/:id', (req,res) => {
+    Category.find({where: {id: req.params.id}}).then(category =>{
+        category.update(req.body)
+    }).then(() => {
+        res.status(200).json({
+            message: "updated successfully"
         })
     })
 })
