@@ -2,13 +2,16 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.createTable('users', { id: Sequelize.INTEGER });
-    */
+    return queryInterface.addConstraint('Products',['catId'],{
+      type: 'foreign key',
+      name: 'fk_product_belongs_category',
+      references: {
+        table: 'Categories',
+        field: 'id'
+      },
+      onDelete: 'cascade',
+      onUpdate: 'cascade'
+    })
   },
 
   down: (queryInterface, Sequelize) => {
