@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Category.associate = function(models) {
     // associations can be defined here
-    Category.hasMany(models.Product,{foreignKey:"catId"});
+    Category.hasMany(models.Product,{foreignKey:"catId",onDelete: 'cascade', hooks:true});
   };
   return Category;
 };

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     total: DataTypes.INTEGER
   }, {});
   Order.associate = function(models) {
-    Order.belongsTo(models.Delivery_Address, {foreignKey: "delivery_add_id"})
+    Order.belongsTo(models.Delivery_Address, {foreignKey: "deliveryAddId"})
   };
   return Order;
 };

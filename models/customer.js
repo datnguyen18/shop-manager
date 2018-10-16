@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     registerd: DataTypes.STRING
   }, {});
   Customer.associate = function(models) {
-    // associations can be defined here
+    Customer.hasMany(models.Order, {foreignKey: "customerId"});
+    
   };
   return Customer;
 };
