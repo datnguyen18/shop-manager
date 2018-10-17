@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models').Order;
+const Order_Item = require('../models').Order_Items;
 const Customer = require('../models').Customer;
 router.post('/', (req, res) => {
   Order.create(req.body).then(order => {
@@ -9,7 +10,13 @@ router.post('/', (req, res) => {
     })
   })
 })
-
+router.get('/', (req, res) => {
+  Order.findAll({include: [Order_Item]}).then(orders => {
+    res.status(200).json({
+      orders
+    })
+  })
+})
 router.get('/:id', (req, res) => {
   Order.find({
     where: {
