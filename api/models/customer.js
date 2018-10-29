@@ -1,16 +1,21 @@
+const Sequelize = require('sequelize');
 const {sequelize} = require('./config');
-exports.Customer = sequelize.define('Customer', {
-  forename: DataTypes.STRING,
-  surname: DataTypes.STRING,
-  add1: DataTypes.STRING,
-  add2: DataTypes.STRING,
-  add3: DataTypes.STRING,
-  postcode: DataTypes.STRING,
-  phone: DataTypes.STRING,
-  email: DataTypes.STRING,
-  registerd: DataTypes.STRING
+const Order = require('./order')
+
+const Customer = sequelize.define('Customer', {
+  forename: Sequelize.STRING,
+  surname: Sequelize.STRING,
+  add1: Sequelize.STRING,
+  add2: Sequelize.STRING,
+  add3: Sequelize.STRING,
+  postcode: Sequelize.STRING,
+  phone: Sequelize.STRING,
+  email: Sequelize.STRING,
+  registerd: Sequelize.STRING
 }, {});
 
-Customer.hasMany(models.Order, {
+Customer.hasMany(Order, {
   foreignKey: "customerId"
 })
+
+module.exports = Customer;

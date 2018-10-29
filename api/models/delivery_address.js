@@ -1,11 +1,15 @@
 const {sequelize} = require('./config');
-exports.Delivery_Address = sequelize.define('Delivery_Address', {
-    forename: DataTypes.STRING,
-    surname: DataTypes.STRING,
-    add1: DataTypes.STRING,
-    add2: DataTypes.STRING,
-    add3: DataTypes.STRING,
-    postcode: DataTypes.STRING,
-    phone: DataTypes.STRING,
-    email: DataTypes.STRING
-  }, {});
+const Sequelize = require('sequelize');
+
+const Delivery_Address = sequelize.define('Delivery_Address', {
+  forename: Sequelize.STRING,
+  surname: Sequelize.STRING,
+  add1: Sequelize.STRING,
+  add2: Sequelize.STRING,
+  add3: Sequelize.STRING,
+  postcode: Sequelize.STRING,
+  phone: Sequelize.STRING,
+  email: Sequelize.STRING
+}, {});
+
+module.exports = Delivery_Address;

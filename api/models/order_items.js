@@ -1,6 +1,11 @@
 const {sequelize} = require('./config');
-exports.Order_Items = sequelize.define('Order_Items', {
-  quantity: DataTypes.INTEGER
+const Sequelize = require('sequelize');
+const Product = require('./product');
+
+const Order_Items = sequelize.define('Order_Items', {
+  quantity: Sequelize.INTEGER
 }, {});
 
-Order_Items.belongsTo(models.Product, {foreignKey: "productId"});
+Order_Items.belongsTo(Product, {foreignKey: "productId"});
+
+module.exports = Product;

@@ -1,13 +1,14 @@
 const {sequelize} = require('./config');
 const Delivery_Address = require('./delivery_address');
 const Order_Items = require('./order_items');
-exports.Order = sequelize.define('Order', {
-  registered: DataTypes.BOOLEAN,
-  paymentType: DataTypes.STRING,
-  date: DataTypes.DATE,
-  status: DataTypes.STRING,
-  session: DataTypes.STRING,
-  total: DataTypes.INTEGER
+const Sequelize = require('sequelize');
+const Order = sequelize.define('Order', {
+  registered: Sequelize.BOOLEAN,
+  paymentType: Sequelize.STRING,
+  date: Sequelize.DATE,
+  status: Sequelize.STRING,
+  session: Sequelize.STRING,
+  total: Sequelize.INTEGER
 }, {});
 Order.belongsTo(Delivery_Address, {
   foreignKey: "deliveryAddId"
@@ -15,3 +16,5 @@ Order.belongsTo(Delivery_Address, {
 Order.hasMany(Order_Items, {
   foreignKey: "orderId"
 });
+
+module.exports = Order;
