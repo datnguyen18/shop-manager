@@ -2,11 +2,11 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const customerRoute = require('.api/routes/customer');
-const categoryRoute = require('.api/routes/category');
-const productRoute = require('.api/routes/product');
-const orderRoute = require('.api/routes/order');
-const orderItemRoute = require('.api/routes/order_item');
+const customerRoute = require('./api/routes/customer');
+const categoryRoute = require('./api/routes/category');
+const productRoute = require('./api/routes/product');
+const orderRoute = require('./api/routes/order');
+const orderItemRoute = require('./api/routes/order_item');
 app.use(morgan('dev'));
 
 app.use(bodyParser.urlencoded({
