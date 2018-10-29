@@ -8,4 +8,4 @@ const Order_Items = sequelize.define('Order_Items', {
 
 Order_Items.belongsTo(Product, {foreignKey: "productId"});
 
-module.exports = Product;
+module.exports = Order_Items;
