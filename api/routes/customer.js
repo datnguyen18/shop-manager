@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Customer = require('../models').Customer;
-const Order = require('../models').Order
+const Customer = require('../models/customer')
+const Order = require('../models/order')
 router.post('/', (req, res) => {
   Customer.create(req.body)
     .then(customer => {

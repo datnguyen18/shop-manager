@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Category = require('../models').Category;
-const Product = require('../models').Product;
+const Category = require('../models/category')
+const Product = require('../models/product')
 router.post('/',(req, res) => {
     Category.create(req.body).then(category => {
         res.status(200).json({category})
