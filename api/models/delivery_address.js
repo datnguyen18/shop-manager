@@ -1,5 +1,6 @@
-const {sequelize} = require('./config');
 const Sequelize = require('sequelize');
+const { sequelize } = require('./config');
+
 
 const Delivery_Address = sequelize.define('Delivery_Address', {
   forename: Sequelize.STRING,
@@ -9,7 +10,7 @@ const Delivery_Address = sequelize.define('Delivery_Address', {
   add3: Sequelize.STRING,
   postcode: Sequelize.STRING,
   phone: Sequelize.STRING,
-  email: Sequelize.STRING
+  email: Sequelize.STRING,
 }, {});
 
 module.exports = Delivery_Address;

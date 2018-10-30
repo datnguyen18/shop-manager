@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+
 exports.sequelize = new Sequelize('shop-manager', 'dat', '1', {
   host: 'localhost',
   dialect: 'postgres',
@@ -8,6 +9,6 @@ exports.sequelize = new Sequelize('shop-manager', 'dat', '1', {
     max: 5,
     min: 0,
     acquire: 30000,
-    idle: 10000
-  }
+    idle: 10000,
+  },
 });

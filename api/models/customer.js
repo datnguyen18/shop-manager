@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
-const {sequelize} = require('./config');
-const Order = require('./order')
+const { sequelize } = require('./config');
+
+const Order = require('./order');
 
 const Customer = sequelize.define('Customer', {
   forename: Sequelize.STRING,
@@ -11,11 +12,11 @@ const Customer = sequelize.define('Customer', {
   postcode: Sequelize.STRING,
   phone: Sequelize.STRING,
   email: Sequelize.STRING,
-  registerd: Sequelize.STRING
+  registerd: Sequelize.STRING,
 }, {});
 
 Customer.hasMany(Order, {
-  foreignKey: "customerId"
-})
+  foreignKey: 'customerId',
+});
 
 module.exports = Customer;
