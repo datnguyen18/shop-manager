@@ -1,5 +1,6 @@
-const {gql} = require('apollo-server');
-const schema  = gql `
+const { gql } = require('apollo-server');
+
+const schema = gql`
   scalar Date
 
   type Product {
@@ -32,8 +33,9 @@ const schema  = gql `
 
   type Mutation {
     addProduct(catId: Int, name: String, description: String, image: String, price: Int): Product
+    updateProduct(id: Int,catId: Int, name: String, description: String, image: String, price: Int): Product
     addCategory(name: String, description: String, image: String): Category
     
   }
-`
-module.exports= schema;
+`;
+module.exports = schema;
