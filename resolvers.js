@@ -2,7 +2,12 @@ const Product = require('./api/models/product');
 const Category = require('./api/models/category');
 const resolvers= {
   Query: {
-    products: () => Product.findAll(),
+    getProducts: () => Product.findAll(),
+    getProduct: (parent, args) => Product.find({
+      where: {
+        id: args.id
+      }
+    }),
     categories: () => Category.findAll({
       include: [Product]
     })
