@@ -25,13 +25,15 @@ const schema  = gql `
   }
 
   type Query {
-    products: [Product]
+    getProducts: [Product]
+    getProduct(id: Int): Product
     categories: [Category]
   }
 
   type Mutation {
     addProduct(catId: Int, name: String, description: String, image: String, price: Int): Product
     addCategory(name: String, description: String, image: String): Category
+    
   }
 `
 module.exports= schema;
