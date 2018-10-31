@@ -15,6 +15,11 @@ const schema = gql`
     deleteProduct(id: Int,catId: Int, name: String, description: String, image: String, price: Int): Product
     addCategory(name: String, description: String, image: String): Category
     
+    addCustomer(input: CustomerInput!): Customer
+    updateCustomer(id: Int!, forename: String, surname: String, add1: String, add2: String, add3: String, postcode: String,phone: String,email: String,registerd: Boolean): Customer
+    deleteCustomer(id: Int!): Customer
+
+
   }
 
   type Customer{
@@ -84,12 +89,23 @@ const schema = gql`
 
   input CustomerInput {
     forename: String!
-    surename: String!
+    surname: String!
     add1: String!
     add2: String!
     add3: String!
     postcode: String!
     phone: String!
+  }
+
+  input OrderInput {
+    customerId: Int!
+    deliveryAddId: Int!
+    registered: Boolean!
+    paymentType:String!
+    date: Date
+    status: String!
+    session: String!
+    total: Int!
   }
 `;
 module.exports = schema;
