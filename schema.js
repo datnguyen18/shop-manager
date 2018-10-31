@@ -18,7 +18,7 @@ const schema = gql`
   }
 
   type Customer{
-    id: Int
+    id: Int!
     forename: String
     surname: String
     add1: String
@@ -30,6 +30,37 @@ const schema = gql`
     registerd: Boolean
   }
 
+  type Order {
+    id: Int!
+    customerId: Int!
+    deliveryAddId: Int!
+    registered: Boolean
+    paymentType:String
+    date: Date
+    status: String
+    session: String
+    total: Int
+  }
+
+  type Order_Item{
+    id: Int!
+    orderId: Int!
+    productId: Int!
+    quatity: Int!
+  }
+
+  type Delivery_Address{
+    id: Int!
+    forename: String
+    surname: String
+    add1: String
+    add2: String
+    add3: String
+    postcode: String
+    phone: String
+    email: String
+  }
+
   type Product {
     id: Int!
     catId: Int!
@@ -37,9 +68,8 @@ const schema = gql`
     description: String!
     image: String!
     price: Int!
-    createdAt:Date!
-    updatedAt:Date!
-    category:Category!
+    createdAt:Date
+    updatedAt:Date
   }
 
   type Category{
@@ -59,7 +89,7 @@ const schema = gql`
     add2: String!
     add3: String!
     postcode: String!
-    phone: String
+    phone: String!
   }
 `;
 module.exports = schema;
