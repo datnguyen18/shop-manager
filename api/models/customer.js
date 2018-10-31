@@ -12,7 +12,7 @@ const Customer = sequelize.define('Customer', {
   postcode: Sequelize.STRING,
   phone: Sequelize.STRING,
   email: Sequelize.STRING,
-  registerd: Sequelize.STRING,
+  registerd: Sequelize.BOOLEAN,
 }, {});
 
 Customer.hasMany(Order, {
