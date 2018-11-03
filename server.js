@@ -1,9 +1,6 @@
 const { ApolloServer } = require('apollo-server');
-const schema = require('./schema');
-
+const typeDefs = require('./api/schema/schema');
 const resolvers = require('./resolvers');
-
-const typeDefs = schema;
 
 const server = new ApolloServer({ typeDefs, resolvers });
 server.listen().then(({ url }) => {
