@@ -10,9 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^2.1.0",
+    "apollo-server-express": "^2.1.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "graphql": "^14.0.2",
+    "graphql-tools": "^4.0.3",
     "morgan": "^1.9.1",
     "pg": "^7.5.0",
     "sequelize": "^4.39.0"
